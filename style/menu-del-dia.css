@@ -1,0 +1,44 @@
+/** @format */
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: black;
+}
+#meny {
+	width: 250px;
+	padding: auto;
+	padding-left: 1rem;
+	margin: 0;
+}
+
+@media only screen and (min-width: 800px) {
+	#meny {
+		width: 350px;
+	}
+}
+@media only screen and (min-width: 1000px) {
+	#meny {
+		width: 45%;
+	}
+} /*
+@media only screen asnd (min-width: 1200px) {
+	#meny {
+		width: 550px;
+	}
+}
+@media only screen and (min-width: 1500px) {
+	#meny {
+		width: 700px;
+	}
+}
+@media only screen and (min-width: 1800px) {
+	#meny {
+		width: 850px;
+	}
+}
+@media only screen and (min-width: 2000px) {
+	#meny {
+		width: 950px;
+	}
+}*/
