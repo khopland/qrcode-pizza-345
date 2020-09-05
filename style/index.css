@@ -1,0 +1,46 @@
+/** @format */
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: black;
+}
+#logo {
+	width: 30vh;
+	align-content: center;
+	height: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box {
+	width: 60%;
+	height: 5%;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+a {
+	color: aliceblue;
+	text-decoration: none;
+	font-family: 'Raleway', sans-serif;
+	font-size: 4vw;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 0%;
+	margin-bottom: 0%;
+	width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+	a {
+		font-size: 2vw;
+	}
+}
