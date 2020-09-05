@@ -1,5 +1,32 @@
+/** @format */
+
 body {
 	padding: 0;
 	margin: 0;
 	background-color: black;
+}
+
+.box {
+	width: 200px;
+	height: 10%;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333;
+	margin-bottom: 40px;
+	text-align: center;
+	height: 100%;
+}
+
+a {
+	color: aliceblue;
+	text-decoration: none;
+	font-family: 'Raleway', sans-serif;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5%;
+	margin-bottom: auto;
 }
