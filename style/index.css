@@ -38,6 +38,16 @@ a {
 	margin-bottom: 0%;
 	width: 100%;
 }
+.footer {
+	align-self: center;
+	color: aliceblue;
+	text-decoration: none;
+	font-family: 'Raleway', sans-serif;
+	font-size: 2vw;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
 
 @media only screen and (min-width: 1000px) {
 	a {
