@@ -1,28 +1,18 @@
 /** @format */
 
 body {
-	padding: 0;
-	margin: 0;
-	background-color: black;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #meny {
-	width: 600px;
-	padding: 0;
-	padding-left: 3em;
-	margin: 0;
-}
-@media only screen and (min-width: 600px) {
-	#meny {
-		width: 800px;
-	}
-}
-@media only screen and (min-width: 800px) {
-	#meny {
-		width: 1000px;
-	}
-}
-@media only screen and (min-width: 1000px) {
-	#meny {
-		width: 1280px;
-	}
+  width: 95vw;
+  padding: 0;
+  margin: 0;
 }
