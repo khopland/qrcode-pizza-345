@@ -16,3 +16,8 @@ div {
   padding: 0;
   margin: 0;
 }
+@media only screen and (min-width: 1000px) {
+  #meny {
+    width: 70vw;
+  }
+}
