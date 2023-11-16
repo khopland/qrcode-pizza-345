@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "astro": "^3.0.12",
-    "astro-compress": "^2.0.15"
+    "astro-compress": "^2.2.3"
   }
 }
