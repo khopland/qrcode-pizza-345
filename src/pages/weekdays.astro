@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Menú del dia Entre semana">
     <img
         id="meny"
-        src="/img/16 Carta Menu del dia Lunes a Viernes 23.jpg"
+        src="/img/19-20.jpg"
         alt="Menú del dia Entre semana"
     />
 </Layout>
@@ -25,9 +25,13 @@ import Layout from "../layouts/Layout.astro";
         margin: 0;
     }
     #meny {
-        width: 99vw;
-        min-height: 100vh;
+        width: 95vw;
         padding: 0;
         margin: 0;
+    }
+    @media only screen and (min-width: 1000px) {
+        #meny {
+            width: 70vw;
+        }
     }
 </style>
