@@ -1,0 +1,19 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+import { getPizzas } from "../utils/sanity";
+
+const pizza = await getPizzas();
+---
+
+<Layout title="Pizza 345">
+  <section>
+    {
+      pizza.length ? (
+        pizza.map((pizza) => <Card pizza={pizza} />)
+      ) : (
+        <dev>test</dev>
+      )
+    }
+  </section>
+</Layout>

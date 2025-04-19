@@ -1,0 +1,38 @@
+---
+import type { Pizza } from "../../sanity.types";
+
+interface Props {
+  pizza: Pizza;
+}
+
+const { pizza } = Astro.props;
+---
+
+<div class="card">
+  <h3 class="card__title">
+    {pizza.name}
+  </h3>
+
+  <p class="card_cover">
+    {pizza.description}
+  </p>
+  <p class="card__date">
+    {pizza.englishDescription}
+  </p>
+  <p class="card__date">
+    {pizza.price.thinCrust}
+  </p>
+  <p class="card__date">
+    {pizza.price.thinCrustLarge}
+  </p>
+  <p class="card__date">
+    {pizza.price.panPizza1p}
+  </p>
+  <p class="card__date">
+    {pizza.price.panPizza2p}
+  </p>
+  <p class="card__date">
+    {pizza.price.panPizza5p}
+  </p>
+  <br/>
+</div>

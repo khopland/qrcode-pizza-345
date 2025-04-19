@@ -1,16 +1,12 @@
 {
-  "name": "qr_menu_pizza_345",
-  "type": "module",
-  "version": "1.0.0",
+  "name": "qr-pizza",
+  "description": "Minimal Astro site with Sanity Studio",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "concurrently \"pnpm --filter studio run dev\" \"pnpm --filter astro-app run dev\"",
+    "build":"pnpm --filter studio run extract && pnpm --filter astro-app run build"
   },
-  "dependencies": {
-    "astro": "^5.7.2",
-    "astro-compress": "2.3.8"
-  }
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "type": "module"
 }

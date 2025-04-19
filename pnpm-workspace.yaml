@@ -1,0 +1,7 @@
+packages:
+  - astro-app
+  - studio
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
