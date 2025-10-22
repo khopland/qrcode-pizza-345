@@ -3,35 +3,34 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Menú del dia Entre semana">
-    <img
-        id="meny"
-        src="/img/19-20.jpg"
-        alt="Menú del dia Entre semana"
-    />
+  <div>
+    <img id="meny" src="/img/19.jpg" alt="Menú del dia Entre semana" />
+    <img id="meny" src="/img/20.jpg" alt="Menú del dia Entre semana" />
+  </div>
 </Layout>
 
 <style>
-    html {
-        padding: 0;
-        margin: 0;
-        background-color: #ffffff;
-    }
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
+  html {
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+  }
+  div {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #meny {
+    width: 47vw;
+    padding: 0;
+    margin: 0;
+  }
+  @media only screen and (min-width: 1000px) {
     #meny {
-        width: 95vw;
-        padding: 0;
-        margin: 0;
+      width: 40vw;
     }
-    @media only screen and (min-width: 1000px) {
-        #meny {
-            width: 70vw;
-        }
-    }
+  }
 </style>
+

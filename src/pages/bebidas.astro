@@ -9,16 +9,15 @@ import Layout from "../layouts/Layout.astro";
             src="/img/11-12.jpg"
             alt="Bebidas"
         />
-        <img
-            id="meny"
-            src="/img/13-14.jpg"
-            alt="Vino Blanco"
-        />
-        <img
-            id="meny"
-            src="/img/15-16.jpg"
-            alt="Vino Rosado"
-        />
+
+        <div class="small-grid">
+            <img             id="meny"
+ src="/img/13.jpg" alt="Vino Blanco" />
+            <img             id="meny"
+ src="/img/14.jpg" alt="Vino Blanco" />
+            <img             id="meny"
+ src="/img/15.jpg" alt="Vino Rosado" />
+        </div>
     </div>
 </Layout>
 
@@ -37,9 +36,32 @@ import Layout from "../layouts/Layout.astro";
         padding: 0;
         margin: 0;
     }
+ 
+
+    /* Grid for small images: two per row when there's enough space */
+    .small-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 95vw;
+        padding: 0;
+        margin: 0 auto;
+        justify-items: center;
+        justify-content: center;    
+
+    }
+
+    .small-grid #meny {
+        width: 100%;
+        object-fit: contain;
+    }
+
     @media only screen and (min-width: 1000px) {
         #meny {
             width: 70vw;
         }
+        .small-grid #meny {
+        width: 80%;
+        object-fit: contain;
+    }
     }
 </style>
