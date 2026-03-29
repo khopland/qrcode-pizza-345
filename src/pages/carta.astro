@@ -1,14 +1,64 @@
 ---
+import { Image } from "astro:assets";
+import Jpg01 from "../img/01-02.jpg";
+import Jpg03 from "../img/03-04.jpg";
+import Jpg05 from "../img/05-06.jpg";
+import Jpg07 from "../img/07-08.jpg";
+import Jpg09 from "../img/09-10.jpg";
+
 import Layout from "../layouts/Layout.astro";
+
+const menuSizes = "(min-width: 1000px) 70vw, 95vw";
+const menuWidths = [640, 960, 1280, 1920, 2560, 3508] as const;
 ---
 
 <Layout title="carta">
     <div>
-        <img id="meny" src="/img/01-02.jpg" alt="" />
-        <img id="meny" src="/img/03-04.jpg" alt="" />
-        <img id="meny" src="/img/05-06.jpg" alt="" />
-        <img id="meny" src="/img/07-08.jpg" alt="" />
-        <img id="meny" src="/img/09-10.jpg" alt="" />
+        <Image
+            class="meny"
+            src={Jpg01}
+            alt="Primeros"
+            width={Jpg01.width}
+            height={Jpg01.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
+        />
+        <Image
+            class="meny"
+            src={Jpg03}
+            alt="Pasta / Rincón Americana"
+            width={Jpg03.width}
+            height={Jpg03.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
+        />
+        <Image
+            class="meny"
+            src={Jpg05}
+            alt="Los Clásicos / 3|4|5 Pizzas"
+            width={Jpg05.width}
+            height={Jpg05.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
+        />
+        <Image
+            class="meny"
+            src={Jpg07}
+            alt="3|4|5 Pizzas / Postres caseros"
+            width={Jpg07.width}
+            height={Jpg07.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
+        />
+        <Image
+            class="meny"
+            src={Jpg09}
+            alt="Helados / Menu Infantil"
+            width={Jpg09.width}
+            height={Jpg09.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
+        />
     </div>
 </Layout>
 
@@ -22,13 +72,14 @@ import Layout from "../layouts/Layout.astro";
         justify-content: center;
         align-items: center;
     }
-    #meny {
+    .meny {
         width: 95vw;
+        height: auto;
         padding: 0;
         margin: 0;
     }
     @media only screen and (min-width: 1000px) {
-        #meny {
+        .meny {
             width: 70vw;
         }
     }

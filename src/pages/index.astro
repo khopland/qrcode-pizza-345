@@ -1,11 +1,24 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../img/logo.jpg";
+
 import Layout from "../layouts/Layout.astro";
+
+const logoWidths = [320, 640, 960, 1280, 2048] as const;
 ---
 
 <Layout title="Welcome to Pizza 345">
 	<main>
 		<div class="flex-container">
-			<img src="/img/logo.jpg" alt="logo" id="logo" />
+			<Image
+				id="logo"
+				src={logo}
+				alt="Pizza 345"
+				width={logo.width}
+				height={logo.height}
+				sizes="30vh"
+				widths={[...logoWidths]}
+			/>
 			<a  href="/carta">
 				<div class="box">Carta | Menu</div>
 			</a>
@@ -33,8 +46,8 @@ import Layout from "../layouts/Layout.astro";
 <style>
 	#logo {
 		width: 30vh;
+		height: auto;
 		align-content: center;
-		height: 20%;
 		margin-left: auto;
 		margin-right: auto;
 	}

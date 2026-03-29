@@ -1,32 +1,44 @@
 ---
+import { Image } from "astro:assets";
+import Jpg11 from "../img/11-12.jpg";
+import Jpg13 from "../img/13-14.jpg";
+import Jpg15 from "../img/15-16.jpg";
+
 import Layout from "../layouts/Layout.astro";
+
+const menuSizes = "(min-width: 1000px) 70vw, 95vw";
+const menuWidths = [640, 960, 1280, 1920, 2560, 3508] as const;
 ---
 
 <Layout title="Bebidas">
     <div>
-        <img
-            id="meny"
-            src="/img/11-12.jpg"
+        <Image
+            class="meny"
+            src={Jpg11}
             alt="Bebidas"
+            width={Jpg11.width}
+            height={Jpg11.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
         />
-          <img
-            id="meny"
-            src="/img/13-14.jpg"
+        <Image
+            class="meny"
+            src={Jpg13}
             alt="Vino Blanco y Rosado"
-        />  <img
-            id="meny"
-            src="/img/15-16.jpg"
-            alt="Alcoholes"
+            width={Jpg13.width}
+            height={Jpg13.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
         />
-
-        <!-- <div class="small-grid">
-            <img             id="meny"
- src="/img/13.jpg" alt="Vino Blanco" />
-            <img             id="meny"
- src="/img/14.jpg" alt="Vino Blanco" />
-            <img             id="meny"
- src="/img/15.jpg" alt="Vino Rosado" />
-        </div> -->
+        <Image
+            class="meny"
+            src={Jpg15}
+            alt="Alcoholes"
+            width={Jpg15.width}
+            height={Jpg15.height}
+            sizes={menuSizes}
+            widths={[...menuWidths]}
+        />
     </div>
 </Layout>
 
@@ -40,8 +52,9 @@ import Layout from "../layouts/Layout.astro";
         justify-content: center;
         align-items: center;
     }
-    #meny {
+    .meny {
         width: 95vw;
+        height: auto;
         padding: 0;
         margin: 0;
     }
@@ -59,16 +72,16 @@ import Layout from "../layouts/Layout.astro";
 
     }
 
-    .small-grid #meny {
+    .small-grid .meny {
         width: 100%;
         object-fit: contain;
     }
 
     @media only screen and (min-width: 1000px) {
-        #meny {
+        .meny {
             width: 70vw;
         }
-        .small-grid #meny {
+        .small-grid .meny {
         width: 80%;
         object-fit: contain;
     }
