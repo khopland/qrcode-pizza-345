@@ -1,0 +1,26 @@
+{
+  "title": "Carta",
+  "unavailableMessage": "The food menu is not available right now.",
+  "images": [
+    {
+      "image": "../../img/01-02.jpg",
+      "altText": "Primeros"
+    },
+    {
+      "image": "../../img/03-04.jpg",
+      "altText": "Pasta / Rincón Americana"
+    },
+    {
+      "image": "../../img/05-06.jpg",
+      "altText": "Los Clásicos / 3|4|5 Pizzas"
+    },
+    {
+      "image": "../../img/07-08.jpg",
+      "altText": "3|4|5 Pizzas / Postres caseros"
+    },
+    {
+      "image": "../../img/09-10.jpg",
+      "altText": "Helados / Menu Infantil"
+    }
+  ]
+}

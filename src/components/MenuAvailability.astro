@@ -1,0 +1,46 @@
+---
+interface Props {
+  enabled: boolean;
+  title: string;
+  message: string;
+}
+
+const { enabled, title, message } = Astro.props;
+---
+
+{
+  enabled ? (
+    <slot />
+  ) : (
+    <main class="unavailable">
+      <h1>{title}</h1>
+      <p>{message}</p>
+      <a href="/">Back to the main menu</a>
+    </main>
+  )
+}
+
+<style>
+  .unavailable {
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: #fff;
+    color: #222;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: #222;
+    font-weight: 700;
+  }
+</style>

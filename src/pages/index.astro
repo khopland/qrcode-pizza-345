@@ -3,8 +3,11 @@ import { Image } from "astro:assets";
 import logo from "../img/logo.jpg";
 
 import Layout from "../layouts/Layout.astro";
+import { getMenu } from "../lib/menus";
 
 const logoWidths = [320, 640, 960, 1280, 2048] as const;
+const dailyMenu = await getMenu("daily");
+const holidayMenu = await getMenu("holiday");
 ---
 
 <Layout title="Welcome to Pizza 345">
@@ -27,13 +30,8 @@ const logoWidths = [320, 640, 960, 1280, 2048] as const;
 				<div class="box">Bebidas | Beverages</div>
 			</a>
 			<br />
-			<!-- <a href="/menu">
-				<div class="box">Menú del dia</div>
-			</a>
-			 <br />
-		  <a href="./festivo.html">
-			<div class="box">Menú Festivo</div>
-		  </a>  -->
+			{dailyMenu.enabled && <a href="/menu"><div class="box">Menú del dia</div></a>}
+			{holidayMenu.enabled && <a href="/festivo"><div class="box">Menú Festivo</div></a>}
 			<footer>
 				<p class="footer">Domicilio | Take away</p>
 				<p class="footer">Calle Sant Pere 34</p>

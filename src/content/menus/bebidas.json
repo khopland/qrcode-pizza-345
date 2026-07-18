@@ -1,0 +1,18 @@
+{
+  "title": "Bebidas",
+  "unavailableMessage": "The drinks menu is not available right now.",
+  "images": [
+    {
+      "image": "../../img/11-12.jpg",
+      "altText": "Bebidas"
+    },
+    {
+      "image": "../../img/13-14.jpg",
+      "altText": "Vino Blanco y Rosado"
+    },
+    {
+      "image": "../../img/15-16.jpg",
+      "altText": "Alcoholes"
+    }
+  ]
+}

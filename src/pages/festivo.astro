@@ -1,32 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MenuPage from "../components/MenuPage.astro";
+import { getMenu } from "../lib/menus";
 
+const menu = await getMenu("holiday");
 ---
 
-<Layout title="Menu Festivo">
-    <img id="meny" src="/img/18 Carta Menu Festivo 23.jpg" alt="Menú Festivo" />
-</Layout>
-
-
-<style>
-html {
-  padding: 0;
-  margin: 0;
-  background-color: #ffffff;
-}
-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-#meny {
-  width: 99vw;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-}
-</style>
+<MenuPage {menu} />

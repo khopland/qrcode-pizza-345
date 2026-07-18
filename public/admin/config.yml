@@ -1,0 +1,101 @@
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+local_backend: true
+locale: en
+publish_mode: editorial_workflow
+show_preview_links: true
+search: false
+
+media_folder: src/img
+public_folder: ../../img
+media_library:
+  config:
+    max_file_size: 5000000
+
+collections:
+  - name: menus
+    label: Menus
+    label_singular: Menu
+    description: Upload, replace, and reorder menu images. Save a draft and check the site preview before publishing.
+    delete: false
+    format: json
+    files:
+      - name: carta
+        label: Food Menu
+        file: src/content/menus/carta.json
+        preview_path: carta
+        fields: &required_menu_fields
+          - { label: Menu title, name: title, widget: string }
+          - { label: Unavailable message, name: unavailableMessage, widget: string }
+          - label: Menu images
+            name: images
+            widget: list
+            summary: "{{fields.altText}}"
+            hint: Drag items to reorder them. Upload JPG, PNG, or WebP files up to 5 MB; use a clear scan with the same proportions as the current menu.
+            fields:
+              - label: Image
+                name: image
+                widget: image
+                choose_url: false
+                allow_multiple: false
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - { label: Alternative text, name: altText, widget: string, hint: Describe the menu section shown in the image. }
+              - { label: Caption, name: caption, widget: string, required: false }
+      - name: bebidas
+        label: Drinks Menu
+        file: src/content/menus/bebidas.json
+        preview_path: bebidas
+        fields: *required_menu_fields
+      - name: daily
+        label: Daily Menu
+        file: src/content/menus/daily.json
+        preview_path: menu
+        fields:
+          - { label: Menu title, name: title, widget: string }
+          - { label: Menu enabled, name: enabled, widget: boolean, default: false, hint: Enable only after adding at least one menu image and checking the preview. }
+          - { label: Unavailable message, name: unavailableMessage, widget: string }
+          - label: Menu images
+            name: images
+            widget: list
+            summary: "{{fields.altText}}"
+            hint: Drag items to reorder them. Upload JPG, PNG, or WebP files up to 5 MB; use a clear scan with the same proportions as the current menu.
+            fields:
+              - label: Image
+                name: image
+                widget: image
+                choose_url: false
+                allow_multiple: false
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - { label: Alternative text, name: altText, widget: string, hint: Describe the menu section shown in the image. }
+              - { label: Caption, name: caption, widget: string, required: false }
+      - name: holiday
+        label: Holiday Menu
+        file: src/content/menus/holiday.json
+        preview_path: festivo
+        fields:
+          - { label: Menu title, name: title, widget: string }
+          - { label: Menu enabled, name: enabled, widget: boolean, default: false, hint: Enable only after adding at least one menu image and checking the preview. }
+          - { label: Unavailable message, name: unavailableMessage, widget: string }
+          - label: Menu images
+            name: images
+            widget: list
+            summary: "{{fields.altText}}"
+            hint: Drag items to reorder them. Upload JPG, PNG, or WebP files up to 5 MB; use a clear scan with the same proportions as the current menu.
+            fields:
+              - label: Image
+                name: image
+                widget: image
+                choose_url: false
+                allow_multiple: false
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - { label: Alternative text, name: altText, widget: string, hint: Describe the menu section shown in the image. }
+              - { label: Caption, name: caption, widget: string, required: false }

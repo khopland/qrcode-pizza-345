@@ -1,0 +1,31 @@
+---
+import type { ImageMetadata } from "astro";
+import Layout from "../layouts/Layout.astro";
+import MenuAvailability from "./MenuAvailability.astro";
+import MenuImageList from "./MenuImageList.astro";
+
+interface Props {
+  menu: {
+    title: string;
+    enabled: boolean;
+    unavailableMessage: string;
+    images: Array<{
+      image: ImageMetadata;
+      altText: string;
+      caption?: string;
+    }>;
+  };
+}
+
+const { menu } = Astro.props;
+---
+
+<Layout title={menu.title}>
+  <MenuAvailability
+    enabled={menu.enabled}
+    title={menu.title}
+    message={menu.unavailableMessage}
+  >
+    <MenuImageList images={menu.images} />
+  </MenuAvailability>
+</Layout>
