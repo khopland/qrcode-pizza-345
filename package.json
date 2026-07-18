@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.1.1",
-    "astro-compress": "2.3.8",
-    "sharp": "^0.34.5"
+    "astro": "^7.1.1",
+    "astro-compress": "2.4.1",
+    "sharp": "^0.35.3"
   }
 }
