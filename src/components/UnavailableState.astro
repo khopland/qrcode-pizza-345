@@ -1,0 +1,60 @@
+---
+import {Image} from 'astro:assets';
+import logo from '../img/logo.jpg';
+
+interface Props { title: string; message?: string; }
+const {title, message} = Astro.props;
+const defaultMessage = title.toLocaleLowerCase('es').includes('festivo')
+  ? 'El menú festivo no está disponible hoy. Holiday menu is not available today.'
+  : 'El menú del día no está disponible hoy. Daily menu is not available today.';
+---
+
+<main class="unavailable">
+  <Image
+    id="logo"
+    src={logo}
+    alt="Pizza 345"
+    width={logo.width}
+    height={logo.height}
+    widths={[320, 640, 960]}
+    sizes="30vh"
+    loading="eager"
+  />
+  <section class="box">
+    <h1>{title}</h1>
+    <p>{message?.trim() || defaultMessage}</p>
+  </section>
+  <a class="box home-link" href="/">Volver a la portada | Back to menus</a>
+</main>
+
+<style>
+  .unavailable {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+  }
+  #logo {
+    width: 30vh;
+    max-width: 70vw;
+    height: auto;
+  }
+  .box {
+    box-sizing: content-box;
+    width: 60%;
+    min-height: 44px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    background: #333;
+    text-align: center;
+  }
+  h1 { margin: 0 0 0.75rem; font-size: clamp(1.35rem, 6vw, 2rem); }
+  p { margin: 0; font-size: clamp(1rem, 4vw, 1.25rem); }
+  .home-link {
+    display: grid;
+    place-items: center;
+    color: aliceblue;
+    font-size: clamp(1rem, 4vw, 2rem);
+    text-decoration: none;
+  }
+</style>

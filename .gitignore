@@ -1,5 +1,7 @@
 # build output
 dist/
+studio/dist/
+studio/.sanity/
 
 # generated types
 .astro/
@@ -16,6 +18,12 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+studio/.env
+studio/.env.local
 
 # macOS-specific files
 .DS_Store
+
+# Local Netlify folder
+.netlify

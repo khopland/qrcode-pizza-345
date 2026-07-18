@@ -1,36 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MenuPageView from '../components/MenuPageView.astro';
+import {getMenu} from '../lib/sanity/content';
+
+export const prerender = true;
+const menu = await getMenu('daily');
 ---
 
-<Layout title="Menú del dia Entre semana">
-  <div>
-    <img id="meny" src="/img/19.jpg" alt="Menú del dia Entre semana" />
-    <img id="meny" src="/img/20.jpg" alt="Menú del dia Entre semana" />
-  </div>
-</Layout>
-
-<style>
-  html {
-    padding: 0;
-    margin: 0;
-    background-color: #000000;
-  }
-  div {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    justify-content: center;
-    align-items: center;
-  }
-  #meny {
-    width: 47vw;
-    padding: 0;
-    margin: 0;
-  }
-  @media only screen and (min-width: 1000px) {
-    #meny {
-      width: 40vw;
-    }
-  }
-</style>
-
+<MenuPageView menu={menu} displayTitle="Menú del día · Entre semana" />
