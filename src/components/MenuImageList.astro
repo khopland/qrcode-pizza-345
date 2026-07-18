@@ -1,0 +1,69 @@
+---
+import {Image} from 'astro:assets';
+import {getSanityImageProps} from '../lib/sanity/image';
+import type {MenuImage} from '../lib/sanity/types';
+
+interface Props { images: MenuImage[]; title: string; }
+const {images, title} = Astro.props;
+const sizes = '(min-width: 1100px) 76vw, 100vw';
+const localWidths = [480, 720, 960, 1280, 1600, 2200, 3000, 3508] as const;
+---
+
+<main class="menu-images" aria-label={title}>
+  {images.map((item, index) => {
+    const remote = getSanityImageProps(item);
+    const remoteWidths = remote && localWidths.filter((width) => remote.width >= width);
+    return (
+      <figure>
+        {remote && remoteWidths ? (
+          <Image
+            src={remote.src}
+            widths={[...remoteWidths]}
+            sizes={sizes}
+            width={remote.width}
+            height={remote.height}
+            quality={84}
+            alt={item.altText}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'auto'}
+            style={remote.lqip ? `background-image:url(${remote.lqip})` : undefined}
+          />
+        ) : null}
+        {item.caption && <figcaption>{item.caption}</figcaption>}
+      </figure>
+    );
+  })}
+</main>
+
+<style>
+  .menu-images {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 110rem;
+    margin: 0 auto;
+    background: #e8e2d8;
+  }
+  figure { margin: 0; }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    background-color: #ddd6ca;
+    background-position: center;
+    background-size: cover;
+  }
+  figcaption {
+    padding: 0.75rem 1rem;
+    background: #201e1b;
+    color: #eee8dc;
+    text-align: center;
+  }
+  @media (min-width: 1100px) {
+    .menu-images {
+      width: 76vw;
+      box-shadow: 0 0 60px #0005;
+    }
+  }
+</style>

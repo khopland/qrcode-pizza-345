@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type {MenuPage} from '../lib/sanity/types';
+import MenuAvailability from './MenuAvailability.astro';
+import SharedNavigation from './SharedNavigation.astro';
+
+interface Props { menu: MenuPage; displayTitle?: string; }
+const {menu, displayTitle = menu.title} = Astro.props;
+---
+
+<Layout
+  title={displayTitle}
+  description={`${displayTitle} de Pizza 345`}
+  noindex={!menu.enabled}
+  theme={menu.enabled ? 'light' : 'dark'}
+>
+  {menu.enabled && <SharedNavigation />}
+  <MenuAvailability menu={{...menu, title: displayTitle}} />
+</Layout>

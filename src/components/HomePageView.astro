@@ -1,0 +1,110 @@
+---
+import {Image} from 'astro:assets';
+import logo from '../img/logo.jpg';
+import Layout from '../layouts/Layout.astro';
+import {publicRouteForMenu} from '../lib/menu-routing';
+import type {MenuPage} from '../lib/sanity/types';
+
+interface Props { menus: MenuPage[]; }
+const {menus} = Astro.props;
+const labels = {
+  carta: 'Carta | Menu',
+  bebidas: 'Bebidas | Beverages',
+  daily: 'Menú del día | Daily menu',
+  holiday: 'Menú Festivo | Holiday menu',
+};
+const visibleMenus = menus.filter((menu) => menu.enabled);
+---
+
+<Layout title="Pizza 345">
+  <main>
+    <div class="flex-container">
+      <Image
+        id="logo"
+        src={logo}
+        alt="Pizza 345"
+        width={logo.width}
+        height={logo.height}
+        widths={[320, 640, 960, 1280, 2048]}
+        sizes="30vh"
+        loading="eager"
+        fetchpriority="high"
+      />
+      {visibleMenus.map((menu) => {
+        const publicRoute = publicRouteForMenu(menu.routeKey);
+        return (
+          <>
+            <a href={publicRoute}>
+              <div class="box">{labels[menu.routeKey]}</div>
+            </a>
+            <br />
+          </>
+        );
+      })}
+      <footer>
+        <p class="footer">Domicilio | Take away</p>
+        <p class="footer">Calle Sant Pere 34</p>
+        <p class="footer"><a href="tel:+34965840324">tlf: 965 840 324</a></p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  :global(html) {
+    background: black;
+  }
+  :global(html body) {
+    background: transparent;
+    margin: 8px;
+  }
+  main {
+    line-height: normal;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  #logo {
+    width: 30vh;
+    height: auto;
+    align-content: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  a {
+    color: aliceblue;
+    font-family: "Raleway", sans-serif;
+    font-size: 4vw;
+    text-decoration: none;
+  }
+  .box {
+    box-sizing: content-box;
+    width: 60%;
+    height: 5%;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+  }
+  .footer {
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    color: aliceblue;
+    font-family: "Raleway", sans-serif;
+    font-size: 2vw;
+    text-decoration: none;
+    text-align: center;
+  }
+  .footer a { font-size: inherit; }
+
+  @media (min-width: 1000px) {
+    a { font-size: 2vw; }
+  }
+</style>

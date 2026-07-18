@@ -1,0 +1,37 @@
+---
+import type {MenuPage} from '../lib/sanity/types';
+import MenuImageList from './MenuImageList.astro';
+import UnavailableState from './UnavailableState.astro';
+
+interface Props { menu: MenuPage; }
+const {menu} = Astro.props;
+---
+
+{!menu.enabled ? (
+  <UnavailableState title={menu.title} message={menu.unavailableMessage} />
+) : (
+  menu.images.length > 0 ? (
+    <MenuImageList images={menu.images} title={menu.title} />
+  ) : (
+    <section class="missing" role="status">
+      <strong>This menu has no images yet.</strong>
+      <span>Upload the menu pages in Sanity before enabling and publishing it.</span>
+    </section>
+  )
+)}
+
+<style>
+  .missing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 0.7rem;
+    width: min(100% - 2rem, 70rem);
+    margin: 1rem auto;
+    padding: 0.9rem 1.1rem;
+    border-radius: 0.8rem;
+    text-align: center;
+  }
+  .missing { background: #2b2925; border: 1px solid #ffffff2e; color: #eee6d8; }
+  .missing span { color: #ddd3c2; }
+</style>

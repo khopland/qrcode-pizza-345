@@ -7,11 +7,24 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test --experimental-strip-types tests/*.test.ts",
+    "studio:dev": "pnpm --dir studio dev",
+    "studio:build": "pnpm --dir studio build",
+    "studio:deploy": "pnpm --dir studio deploy",
+    "verify": "pnpm check && pnpm test && pnpm build && pnpm studio:build",
     "astro": "astro"
   },
   "dependencies": {
+    "@sanity/client": "^7.23.2",
+    "@sanity/image-url": "^2.1.1",
     "astro": "^7.1.1",
-    "astro-compress": "2.4.1",
-    "sharp": "^0.35.3"
+    "groq": "^4.22.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "sharp": "^0.35.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.5"
   }
 }
