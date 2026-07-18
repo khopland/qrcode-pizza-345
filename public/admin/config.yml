@@ -11,9 +11,6 @@ search: false
 
 media_folder: src/img
 public_folder: ../../img
-media_library:
-  config:
-    max_file_size: 5000000
 
 collections:
   - name: menus
